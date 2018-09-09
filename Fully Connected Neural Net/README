@@ -1,0 +1,3 @@
+In this folder there is a model of Fully Connected Neural Network using tf.contrib.layer.fully_connected() API
+of TensorFlow. I have tried to give the maximum customisability to the Neural Network. I have not added a few
+non mandatory parameters which can easily be added by the user if they require.
