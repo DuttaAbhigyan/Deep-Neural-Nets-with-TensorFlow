@@ -132,3 +132,5 @@ class CNN(object):
             self.evaluate = self.model.evaluate(input_fn = self.eval_input_fn)
         elif(mode == 'Predict'):
             self.predict = self.model.predict(input_fn = self.predict_input_fn)
+            
+#END
