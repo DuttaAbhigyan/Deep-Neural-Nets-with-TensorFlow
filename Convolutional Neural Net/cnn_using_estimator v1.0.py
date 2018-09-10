@@ -5,8 +5,14 @@ Created on Thu Jul 12 19:17:10 2018
 
 @author: abhigyan
 """
+
+"""In this program I have tried to create a user defined CNN, which will be managed by the TensorFlow estimator API.
+   This version currently has limited flexibilty, more flexibilities will be added in later versions"""
+
 import tensorflow as tf
 
+#Creation of the CNN class which takes in various parameters of the CNN. For fully connected layers the kernelSizeInEachLayer
+#serves as the number of nodes. Also supply any dummy variable in filtersInEachLayer for the pooling layers.
 
 class CNN(object):
     
@@ -21,7 +27,8 @@ class CNN(object):
         self.stridesInEachLayer = stridesInEachLayer
         self.paddingInEachLayer = paddingInEachLayer
         
-        
+    
+    #Method which creates the actual CNN based on the paramters of the user. Does not need to be called by user.
     def create_a_CNN(self, features, labels, mode, params):
         self.X = features
         self.labels = labels
@@ -94,7 +101,7 @@ class CNN(object):
     
         return spec
     
-    
+    #Method which creates various estimator functions. Has to be called
     def create_estimators_CNN(self, dataset, labels, CVDataset, CVLabels, parameters):
         self.dataset = dataset
         self.labels = labels
@@ -114,7 +121,8 @@ class CNN(object):
                                                                 shuffle = False)
         self.model = tf.estimator.Estimator(model_fn = self.create_a_CNN, params = self.parameters, 
                                             model_dir = './cnn_checkpoint')
-        
+    
+    #Method which is used by the user to train, evaluate or predict.
     def use_CNN(self, mode):
         
         if(mode == 'Train'):
