@@ -11,7 +11,6 @@ Created on Tue Sep  4 21:52:49 2018
     is missing. This is only a Vanilla implementation. The user can easily add
     the missing customisations"""
 
-
 #Importing Relevant packages
     
 import tensorflow as tf
@@ -160,7 +159,6 @@ class Neural_Network(object):
             
         return self.predictions
     
-
 
 """END"""    
     
