@@ -100,6 +100,7 @@ class CNN(object):
             print(spec)
     
         return spec
+   
     
     #Method which creates various estimator functions. Has to be called
     def create_estimators_CNN(self, dataset, labels, CVDataset, CVLabels, parameters):
@@ -121,8 +122,9 @@ class CNN(object):
                                                                 shuffle = False)
         self.model = tf.estimator.Estimator(model_fn = self.create_a_CNN, params = self.parameters, 
                                             model_dir = './cnn_checkpoint')
+      
     
-    #Method which is used by the user to train, evaluate or predict.
+    #Method which is used by the user to train, evaluate or predict. Calls the estimator method
     def use_CNN(self, mode):
         
         if(mode == 'Train'):
